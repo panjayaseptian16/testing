@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Check</title>
+    <style>
+        /* Your CSS styles here */
+    </style>
+</head>
+<body>
+
+    <div class="tab">
+        <button class="tablinks active" onclick="openTab(event, 'knowledgeCheck')">Knowledge Check</button>
+        <button class="tablinks" onclick="openTab(event, 'chartTab')">Chart</button>
+    </div>
+
+    <!-- Tab 1: Knowledge Check -->
+    <div id="knowledgeCheck" class="tabcontent" style="display: block;">
+        <h2>Knowledge Check</h2>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age"><br><br>
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select><br><br>
+            <label for="location">Location:</label>
+            <select id="location" name="location">
+                <option value="north">Jakarta Utara</option>
+                <option value="south">Jakarta Selatan</option>
+                <option value="east">Jakarta Timur</option>
+                <option value="west">Jakarta Barat</option>
+                <option value="central">Jakarta Pusat</option>
+                <option value="jabodetabek">Jabodetabek</option>
+            </select><br><br>
+            <button class="button" onclick="startTest()">Start</button>
+        </div>
+    </div>
+
+    <!-- Tab 2: Chart -->
+    <div id="chartTab" class="tabcontent">
+        <h2>Chart</h2>
+        <!-- Add your chart elements here -->
+    </div>
+
+    <script>
+        let score = 0;
+        let correctAnswers = ["A", "C", "D", "A", "D", "D", "B", "A", "C", "D", "A", "A", "D", "D", "D", "D", "D", "D", "D", "D"];
+
+        function openTab(evt, tabName) {
+            // Add your code to handle tab switching
+        }
+
+        function startTest() {
+            let name = document.getElementById('name').value;
+            let age = document.getElementById('age').value;
+            let gender = document.getElementById('gender').value;
+            let location = document.getElementById('location').value;
+
+            // Generate 10 random questions
+            let randomQuestions = generateRandomQuestions();
+            // Display random questions and options
+            displayQuestions(randomQuestions);
+        }
+
+        function generateRandomQuestions() {
+            let questions = [
+                {
+                    question: "Polusi udara adalah:",
+                    options: ["A. Peningkatan konsentrasi polutan di atmosfer", "B. Peningkatan konsentrasi bahan berbahaya di atmosfer", "C. Peningkatan konsentrasi debu di atmosfer", "D. Peningkatan konsentrasi gas di atmosfer"],
+                    answer: "A"
+                },
+                // Add other questions here
+            ];
+            // Randomly select 10 questions
+            let randomQuestions = []; // Randomly select 10 questions from 'questions'
+            return randomQuestions;
+        }
+
+        function displayQuestions(randomQuestions) {
+            // Display questions and options in your UI
+        }
+
+        function submitTest() {
+            // Calculate score
+            let userAnswers = []; // Get the user's selected answers
+            for (let i = 0; i < correctAnswers.length; i++) {
+                if (userAnswers[i] === correctAnswers[i]) {
+                    score++;
+                }
+            }
+
+            // Determine the category based on the score
+            let category;
+            if (score >= 0 && score <= 3) {
+                category = 'low';
+            } else if (score >= 4 && score <= 7) {
+                category = 'medium';
+            } else if (score >= 8 && score <= 10) {
+                category = 'high';
+            }
+
+            // Save the data to PostgreSQL (need server-side implementation)
+
+            // Show the result to the user
+            let resultMessage = `You have been placed in the ${category} category. You answered ${score} questions correctly.`;
+            // Display the result message in your UI
+
+            // Provide recommendations based on the category
+            if (category === 'low') {
+                // Provide recommendations for the 'low' category
+            } else if (category === 'medium') {
+                // Provide recommendations for the 'medium' category
+            } else if (category === 'high') {
+                // Provide recommendations for the 'high' category
+            }
+        }
+    </script>
+</body>
+</html>
